@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Game Life", "Game Life\Game Life.csproj", "{B9E71C4D-05A2-4304-9718-0DD3D8494503}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Game Life", "Game Life\Game Life.csproj", "{B9E71C4D-05A2-4304-9718-0DD3D8494503}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Game Life WPF", "Game Life WPF\Game Life WPF.csproj", "{F18F8F62-7402-4AE0-A3B9-1F965FD58673}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +17,15 @@ Global
 		{B9E71C4D-05A2-4304-9718-0DD3D8494503}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9E71C4D-05A2-4304-9718-0DD3D8494503}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9E71C4D-05A2-4304-9718-0DD3D8494503}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F18F8F62-7402-4AE0-A3B9-1F965FD58673}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F18F8F62-7402-4AE0-A3B9-1F965FD58673}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F18F8F62-7402-4AE0-A3B9-1F965FD58673}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F18F8F62-7402-4AE0-A3B9-1F965FD58673}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0B62D34F-6229-4E37-BDD1-6C373F9359F1}
 	EndGlobalSection
 EndGlobal
