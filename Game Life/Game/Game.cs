@@ -2,16 +2,18 @@
 {
     public class GameField
     {
-        public List<List<Cell>>? Field { get; set; }
+        public int FieldSize { get; set; }
+        public Cell[,] Field { get; set; }
 
-        public GameField()
+        public GameField(int fieldSize)
         {
-
+            FieldSize = fieldSize;
+            Field = new Cell[fieldSize, fieldSize];
         }
 
         public void NextGeneration()
         {
-            var NewGeneration = new List<List<Cell>>();
+            var NewGeneration = new Cell[FieldSize, FieldSize];
 
             // Логіка яка буде створювати нове покоління
 
@@ -19,27 +21,24 @@
             Field = NewGeneration;
         }
 
-        // Правило 1
-        private void RuleOne()
-        { 
-        
-        }
-        // Правило 2
-        private void RuleTwo()
-        {
-
-        }
-
-        // Правило 3
-        private void RuleThree()
-        {
-
-        }
-
         // Створення ігрового поля
         private void NewGame()
         {
 
+        }
+
+        private void CellRules(int aliveNeighborhood)
+        {
+
+        }
+
+        private int CellAliveAround(int cellX, int cellY)
+        {
+            int[] dx = { -1, 0, 1, -1, 1, -1, 0, 1 };
+            int[] dy = { -1, -1, -1, 0, 0, 1, 1, 1 };
+
+
+            return 1;
         }
     }
 
