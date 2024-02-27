@@ -17,12 +17,16 @@ namespace Game_Life_WPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        public Graphics graphics { get; set; }
         public MainWindow()
         {
             InitializeComponent();
 
             
+        }
+
+        private void StartGame()
+        {
+            GameField.Source = new BitmapImage();
         }
     }
 }
