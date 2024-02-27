@@ -25,7 +25,7 @@ namespace Game_Life_WPF
         {
             InitializeComponent();
 
-            var game = new GameManager(200, 200, 20d);
+            var game = new GameManager(300, 300, 30d); // Height, width, density
             StartGameLoop();
 
             async void StartGameLoop()
@@ -36,8 +36,7 @@ namespace Game_Life_WPF
                     GameField.Source = ConvertCellsToBitmapImage(game.CellField.Field);
                     game.NextGeneration();
 
-                    // Зачекайте деякий час перед наступною ітерацією
-                    await Task.Delay(100); // Наприклад, зачекайте 100 мілісекунд
+                    await Task.Delay(100); // Generation interval
                 }
             }
         }
