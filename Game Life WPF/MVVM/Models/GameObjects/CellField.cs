@@ -35,11 +35,11 @@ namespace Game_Life_WPF.MVVM.Models.GameObjects
 
         public CellField(int sizeHeights, int sizeWidth, double percentageLiveCells)
         {
-            var field = new Cell[sizeHeights, sizeWidth].FieldAliveCells(percentageLiveCells);
+            var field = new Cell[sizeHeights, sizeWidth];
 
             FillField(field);
 
-            Field = field;
+            Field = field.FieldAliveCells(percentageLiveCells);
         }
 
         private static void FillField(Cell[,] field)

@@ -5,7 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Game_Life_WPF"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Title="Game Life "
+    Title="Game Life"
     Width="800"
     Height="800"
     mc:Ignorable="d">

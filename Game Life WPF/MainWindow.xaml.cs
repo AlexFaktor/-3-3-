@@ -24,7 +24,7 @@ namespace Game_Life_WPF
         {
             InitializeComponent();
 
-            GameField.Source = ConvertCellsToBitmapImage(new CellField(55, 30d).Field);
+            GameField.Source = ConvertCellsToBitmapImage(new CellField(200, 20d).Field);
 
 
 
@@ -37,13 +37,13 @@ namespace Game_Life_WPF
 
         }
 
-        public BitmapImage ConvertCellsToBitmapImage(Cell[,] cells)
+        public static BitmapImage ConvertCellsToBitmapImage(Cell[,] cells)
         {
             int width = cells.GetLength(0);
             int height = cells.GetLength(1);
 
             // Створюємо нове зображення Bitmap
-            Bitmap bitmap = new Bitmap(width, height);
+            var bitmap = new Bitmap(width, height);
 
             // Проходимо по кожній комірці масиву і встановлюємо піксель на зображенні
             for (int x = 0; x < width; x++)
@@ -56,9 +56,9 @@ namespace Game_Life_WPF
             }
 
             // Конвертуємо зображення Bitmap в BitmapImage
-            BitmapImage bitmapImage = new BitmapImage();
+            var bitmapImage = new BitmapImage();
 
-            using (MemoryStream memory = new MemoryStream())
+            using (var memory = new MemoryStream())
             {
                 bitmap.Save(memory, ImageFormat.Bmp);
                 memory.Position = 0;
