@@ -1,4 +1,5 @@
-﻿using Game_Life_WPF.MVVM.Models.GameObjects;
+﻿using Game_Life_WPF.Game;
+using Game_Life_WPF.MVVM.Models.GameObjects;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -24,17 +25,21 @@ namespace Game_Life_WPF
         {
             InitializeComponent();
 
-            GameField.Source = ConvertCellsToBitmapImage(new CellField(200, 20d).Field);
+            var game = new GameManager(200, 200, 20d);
+            StartGameLoop();
 
+            async void StartGameLoop()
+            {
+                while (true)
+                {
+                    Title = $"game life | generation - {game.CountGeneration}";
+                    GameField.Source = ConvertCellsToBitmapImage(game.CellField.Field);
+                    game.NextGeneration();
 
-
-        }
-
-        private void StartGame()
-        {
-            GameField.Source = new BitmapImage();
-
-
+                    // Зачекайте деякий час перед наступною ітерацією
+                    await Task.Delay(100); // Наприклад, зачекайте 100 мілісекунд
+                }
+            }
         }
 
         public static BitmapImage ConvertCellsToBitmapImage(Cell[,] cells)

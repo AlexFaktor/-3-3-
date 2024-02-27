@@ -1,6 +1,4 @@
-﻿using System.Windows.Controls;
-
-namespace Game_Life_WPF.MVVM.Models.GameObjects
+﻿namespace Game_Life_WPF.MVVM.Models.GameObjects
 {
     public class CellField
     {
@@ -54,6 +52,30 @@ namespace Game_Life_WPF.MVVM.Models.GameObjects
                     field[i, j] = new Cell();
                 }
             }
+        }
+
+        public int CountNeighbors(int x, int y)
+        {
+            int count = 0;
+            var cols = Field.GetLength(0);
+            var rows = Field.GetLength(1);
+
+            for (var i = -1; i < 2; i++)
+            {
+                for (var j = -1; j < 2; j++)
+                {
+                    var col = (x + i + cols) % cols;
+                    var row = (y + j + rows) % rows;
+
+                    var isSelfCheck = col == x && row == y;
+                    var hasLife = Field[col, row].Alive;
+
+                    if (hasLife && !isSelfCheck)
+                        count++;
+                }
+            }
+
+            return count;
         }
     }
 
