@@ -17,6 +17,7 @@
                 Height="auto"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
+                RenderOptions.BitmapScalingMode="NearestNeighbor"
                 Stretch="Fill" />
         </DockPanel>
     </Grid>

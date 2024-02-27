@@ -13,9 +13,4 @@
     <PackageReference Include="System.Drawing.Common" Version="8.0.2" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="MVVM\Models\" />
-    <Folder Include="MVVM\Views\" />
-  </ItemGroup>
-
 </Project>

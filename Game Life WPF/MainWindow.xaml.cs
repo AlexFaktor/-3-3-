@@ -1,4 +1,7 @@
-﻿using System.Drawing;
+﻿using Game_Life_WPF.MVVM.Models.GameObjects;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,12 +24,52 @@ namespace Game_Life_WPF
         {
             InitializeComponent();
 
-            
+            GameField.Source = ConvertCellsToBitmapImage(new CellField(55, 30d).Field);
+
+
+
         }
 
         private void StartGame()
         {
             GameField.Source = new BitmapImage();
+
+
+        }
+
+        public BitmapImage ConvertCellsToBitmapImage(Cell[,] cells)
+        {
+            int width = cells.GetLength(0);
+            int height = cells.GetLength(1);
+
+            // Створюємо нове зображення Bitmap
+            Bitmap bitmap = new Bitmap(width, height);
+
+            // Проходимо по кожній комірці масиву і встановлюємо піксель на зображенні
+            for (int x = 0; x < width; x++)
+            {
+                for (int y = 0; y < height; y++)
+                {
+                    System.Drawing.Color color = cells[x, y].Alive ? System.Drawing.Color.Green : System.Drawing.Color.Black; // Встановлюємо зелений колір для true, чорний - для false
+                    bitmap.SetPixel(x, y, color); // Встановлюємо піксель
+                }
+            }
+
+            // Конвертуємо зображення Bitmap в BitmapImage
+            BitmapImage bitmapImage = new BitmapImage();
+
+            using (MemoryStream memory = new MemoryStream())
+            {
+                bitmap.Save(memory, ImageFormat.Bmp);
+                memory.Position = 0;
+
+                bitmapImage.BeginInit();
+                bitmapImage.StreamSource = memory;
+                bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
+                bitmapImage.EndInit();
+            }
+
+            return bitmapImage;
         }
     }
 }
