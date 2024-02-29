@@ -26,7 +26,7 @@ namespace Game_Life_WPF
                 while (true)
                 {
                     Title = $"game life | generation - {game.CountGeneration} | alive - {game.Stats.CellAlice}/{game.Stats.CellCount} | field size - {game.Stats.FieldHeight}x{game.Stats.FieldWidth} | window size";
-                    GameField.Source = ConvertCellsToBitmapImage(game.CellField.Field);
+                    GameField.Source = ConvertCellsToBitmapImage(game.CellField.Field, System.Drawing.Color.Green); // cell color
                     game.NextGeneration();
 
                     await Task.Delay(150); // Generation interval
@@ -34,7 +34,7 @@ namespace Game_Life_WPF
             }
         }
 
-        public static BitmapImage ConvertCellsToBitmapImage(Cell[,] cells)
+        public static BitmapImage ConvertCellsToBitmapImage(Cell[,] cells, System.Drawing.Color cellColor)
         {
             int width = cells.GetLength(0);
             int height = cells.GetLength(1);
@@ -47,7 +47,7 @@ namespace Game_Life_WPF
             {
                 for (int y = 0; y < height; y++)
                 {
-                    System.Drawing.Color color = cells[x, y].Alive ? System.Drawing.Color.Green : System.Drawing.Color.Black; // Встановлюємо зелений колір для true, чорний - для false
+                    System.Drawing.Color color = cells[x, y].Alive ? cellColor : System.Drawing.Color.Black; // Встановлюємо зелений колір для true, чорний - для false
                     bitmap.SetPixel(x, y, color); // Встановлюємо піксель
                 }
             }
