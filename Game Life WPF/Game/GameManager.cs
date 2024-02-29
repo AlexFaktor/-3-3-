@@ -1,5 +1,6 @@
 ﻿using Game_Life_WPF.MVVM.Models.GameObjects;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,15 +12,18 @@ namespace Game_Life_WPF.Game
     {
         public CellField CellField { get; set; }
         public int CountGeneration { get; set; }
+        public GameStats Stats { get; set; }
 
         public GameManager(int fieldWidth, int fieldHeight, double density)
         {
             CellField = new CellField(fieldWidth, fieldHeight, density);
             CountGeneration = 0;
+            Stats = new GameStats(CellField);
         }
 
         public void NextGeneration()
         {
+            var stats = Stats;
             var newGenerationField = new Cell[CellField.Field.GetLength(0), CellField.Field.GetLength(1)];
 
             for (int x = 0; x < newGenerationField.GetLength(0); x++)
@@ -39,8 +43,27 @@ namespace Game_Life_WPF.Game
                         newGenerationField[x, y] = CellField.Field[x,y];
                 }
             }
+
+            stats.CellAlice = CellField.CountCellAlive();
+            Stats = stats;
+
             CellField.Field = newGenerationField;
             CountGeneration++;
+        }
+
+        public struct GameStats
+        {
+            public int CellAlice { get; set; }
+            public readonly int CellCount { get; }
+            public readonly int FieldWidth { get; }
+            public readonly int FieldHeight { get; }
+
+            public GameStats(CellField field)
+            {
+                FieldWidth = field.Field.GetLength(0);
+                FieldHeight = field.Field.GetLength(1);
+                CellCount = FieldWidth * FieldHeight;
+            }
         }
     }
 }

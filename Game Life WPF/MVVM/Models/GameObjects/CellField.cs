@@ -54,6 +54,24 @@
             }
         }
 
+        public int CountCellAlive()
+        {
+            var count = 0;
+
+            var rows = Field.GetLength(0);
+            var cols = Field.GetLength(1);
+
+            for (var i = 0; i < rows; i++)
+            {
+                for (var j = 0; j < cols; j++)
+                {
+                    if(Field[i, j].Alive)
+                        count++;
+                }
+            }
+            return count;
+        }
+
         public int CountNeighbors(int x, int y)
         {
             int count = 0;

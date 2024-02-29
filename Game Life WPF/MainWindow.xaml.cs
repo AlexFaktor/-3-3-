@@ -3,16 +3,9 @@ using Game_Life_WPF.MVVM.Models.GameObjects;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+
 
 namespace Game_Life_WPF
 {
@@ -25,18 +18,18 @@ namespace Game_Life_WPF
         {
             InitializeComponent();
 
-            var game = new GameManager(300, 300, 30d); // Height, width, density
+            var game = new GameManager(130, 130, 30d); // Height, width, density
             StartGameLoop();
 
             async void StartGameLoop()
             {
                 while (true)
                 {
-                    Title = $"game life | generation - {game.CountGeneration}";
+                    Title = $"game life | generation - {game.CountGeneration} | alive - {game.Stats.CellAlice}/{game.Stats.CellCount} | field size - {game.Stats.FieldHeight}x{game.Stats.FieldWidth} | window size";
                     GameField.Source = ConvertCellsToBitmapImage(game.CellField.Field);
                     game.NextGeneration();
 
-                    await Task.Delay(100); // Generation interval
+                    await Task.Delay(150); // Generation interval
                 }
             }
         }
