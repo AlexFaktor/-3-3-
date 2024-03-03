@@ -5,22 +5,21 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Game_Life_WPF"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:Game_Life_WPF.MVVM.ViewModels"
     Title="Game Life"
     Width="1000"
     Height="1000"
     MinWidth="250"
     MinHeight="300"
     mc:Ignorable="d">
+
+    <Window.DataContext>
+        <vm:PageGameVM />
+    </Window.DataContext>
+
     <Grid>
         <DockPanel Background="Black">
-            <Image
-                x:Name="GameField"
-                Width="auto"
-                Height="auto"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                RenderOptions.BitmapScalingMode="NearestNeighbor"
-                Stretch="Fill" />
+            <ContentControl>
         </DockPanel>
     </Grid>
 </Window>

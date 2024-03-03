@@ -1,8 +1,9 @@
 ﻿using CourseManager.ViewModels.Base;
 
-namespace Game_Life_WPF.MVVM.ViewModels.Base
+namespace Game_Life_WPF.MVVM.ViewModels
 {
-    class MainWindowVM : ViewModel
+    public class MainWindowVM : ViewModel
     {
+
     }
 }

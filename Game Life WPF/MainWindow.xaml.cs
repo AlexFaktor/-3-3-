@@ -18,18 +18,19 @@ namespace Game_Life_WPF
         {
             InitializeComponent();
 
-            var game = new GameManager(130, 130, 30d); // Height, width, density
-            StartGameLoop();
+            StartGameLoop(130, 130, 30, 150, Color.Green);
 
-            async void StartGameLoop()
+            async void StartGameLoop(int sizeWidth, int sizeHeight, double cellDensity, int generationInterval, Color cellColor)
             {
+                var game = new GameManager(sizeWidth, sizeHeight, cellDensity); // Height, width, density
+
                 while (true)
                 {
-                    Title = $"game life | generation - {game.CountGeneration} | alive - {game.Stats.CellAlice}/{game.Stats.CellCount} | field size - {game.Stats.FieldHeight}x{game.Stats.FieldWidth} | window size";
-                    GameField.Source = ConvertCellsToBitmapImage(game.CellField.Field, System.Drawing.Color.Green); // cell color
+                    Title = $"game life | generation - {game.CountGeneration} | alive - {game.Stats.CellAlive}/{game.Stats.CellCount} | field size - {game.Stats.FieldHeight}x{game.Stats.FieldWidth} | window size {GameField.ActualHeight}x{GameField.ActualWidth}";
+                    GameField.Source = ConvertCellsToBitmapImage(game.CellField.Field, cellColor); // cell color
                     game.NextGeneration();
 
-                    await Task.Delay(150); // Generation interval
+                    await Task.Delay(generationInterval); // Generation interval
                 }
             }
         }

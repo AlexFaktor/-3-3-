@@ -1,10 +1,4 @@
 ﻿using Game_Life_WPF.MVVM.Models.GameObjects;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Game_Life_WPF.Game
 {
@@ -27,7 +21,7 @@ namespace Game_Life_WPF.Game
             var newGenerationField = new Cell[CellField.Field.GetLength(0), CellField.Field.GetLength(1)];
 
             for (int x = 0; x < newGenerationField.GetLength(0); x++)
-            { 
+            {
                 for (int y = 0; y < newGenerationField.GetLength(1); y++)
                 {
                     var neighborsCount = CellField.CountNeighbors(x, y);
@@ -40,11 +34,11 @@ namespace Game_Life_WPF.Game
                         newGenerationField[x, y] = new Cell();
 
                     else
-                        newGenerationField[x, y] = CellField.Field[x,y];
+                        newGenerationField[x, y] = CellField.Field[x, y];
                 }
             }
 
-            stats.CellAlice = CellField.CountCellAlive();
+            stats.CellAlive = CellField.CountCellAlive();
             Stats = stats;
 
             CellField.Field = newGenerationField;
@@ -53,7 +47,7 @@ namespace Game_Life_WPF.Game
 
         public struct GameStats
         {
-            public int CellAlice { get; set; }
+            public int CellAlive { get; set; }
             public readonly int CellCount { get; }
             public readonly int FieldWidth { get; }
             public readonly int FieldHeight { get; }
