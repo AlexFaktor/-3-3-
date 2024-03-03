@@ -46,7 +46,7 @@ namespace Game_Life_WPF.MVVM.ViewModels
             StartGameLoop(130, 130, 30, 150, Color.Green);
         }
 
-        async void StartGameLoop(int sizeWidth, int sizeHeight, double cellDensity, int generationInterval, Color cellColor)
+        private async void StartGameLoop(int sizeWidth, int sizeHeight, double cellDensity, int generationInterval, Color cellColor)
         {
             var game = new GameManager(sizeWidth, sizeHeight, cellDensity); // Height, width, density
 
@@ -60,7 +60,7 @@ namespace Game_Life_WPF.MVVM.ViewModels
             }
         }
 
-        static BitmapImage ConvertCellsToBitmapImage(Cell[,] cells, System.Drawing.Color cellColor)
+        private static BitmapImage ConvertCellsToBitmapImage(Cell[,] cells, System.Drawing.Color cellColor)
         {
             int width = cells.GetLength(0);
             int height = cells.GetLength(1);
@@ -96,7 +96,7 @@ namespace Game_Life_WPF.MVVM.ViewModels
         }
     }
 
-    public class PageСonfiguration : PageVM
+    public class PageСonfigurationVM : PageVM
     {
         private int _SizeWidth = 130;
         private int _SizeHeight = 130;

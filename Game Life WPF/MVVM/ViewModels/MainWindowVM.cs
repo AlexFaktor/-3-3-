@@ -11,7 +11,5 @@ namespace Game_Life_WPF.MVVM.ViewModels
             get => _Page;
             set => Set(ref _Page, value);
         }
-
-
     }
-}
+}   

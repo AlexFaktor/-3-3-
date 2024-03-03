@@ -8,7 +8,7 @@
     xmlns:vm="clr-namespace:Game_Life_WPF.MVVM.ViewModels"
     Width="800"
     Height="450"
-    d:DataContext="{d:DesignInstance vm:PageСonfiguration,
+    d:DataContext="{d:DesignInstance vm:PageСonfigurationVM,
                                      IsDesignTimeCreatable=False}"
     mc:Ignorable="d">
     <Grid>
@@ -18,7 +18,8 @@
                 VerticalAlignment="Center"
                 Orientation="Vertical">
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock FontSize="30" Text="Map size width:" />
+                    <Label></Label>
+                        <TextBlock FontSize="30" Text="Map size width:"/>
                     <TextBox Text="{Binding SizeWidth}" />
                 </StackPanel>
             </StackPanel>

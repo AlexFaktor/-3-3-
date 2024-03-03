@@ -1,10 +1,4 @@
-﻿using Game_Life_WPF.Game;
-using Game_Life_WPF.MVVM.Models.GameObjects;
-using System.Drawing;
-using System.Drawing.Imaging;
-using System.IO;
-using System.Windows.Controls;
-using System.Windows.Media.Imaging;
+﻿using System.Windows.Controls;
 
 namespace Game_Life_WPF.MVVM.Views
 {
@@ -17,7 +11,7 @@ namespace Game_Life_WPF.MVVM.Views
         {
             InitializeComponent();
 
-            
+
         }
     }
 }
