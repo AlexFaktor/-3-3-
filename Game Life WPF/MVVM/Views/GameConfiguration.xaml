@@ -1,0 +1,27 @@
+﻿<UserControl
+    x:Class="Game_Life_WPF.MVVM.Views.GameConfigurationView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Game_Life_WPF.MVVM.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:Game_Life_WPF.MVVM.ViewModels"
+    Width="800"
+    Height="450"
+    d:DataContext="{d:DesignInstance vm:PageСonfiguration,
+                                     IsDesignTimeCreatable=False}"
+    mc:Ignorable="d">
+    <Grid>
+        <GroupBox Background="DarkKhaki">
+            <StackPanel
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontSize="30" Text="Map size width:" />
+                    <TextBox Text="{Binding SizeWidth}" />
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+    </Grid>
+</UserControl>

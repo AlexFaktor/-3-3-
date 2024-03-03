@@ -3,22 +3,21 @@ using Game_Life_WPF.MVVM.Models.GameObjects;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
-using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 
-
-namespace Game_Life_WPF
+namespace Game_Life_WPF.MVVM.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Логика взаимодействия для GameField.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class GameConfigurationView : UserControl
     {
-        public MainWindow()
+        public GameConfigurationView()
         {
             InitializeComponent();
-        }
 
-        
+            
+        }
     }
 }

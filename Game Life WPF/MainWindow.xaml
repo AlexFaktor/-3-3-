@@ -6,7 +6,7 @@
     xmlns:local="clr-namespace:Game_Life_WPF"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:Game_Life_WPF.MVVM.ViewModels"
-    Title="Game Life"
+    Title="{Binding Page.Title}"
     Width="1000"
     Height="1000"
     MinWidth="250"
@@ -14,12 +14,12 @@
     mc:Ignorable="d">
 
     <Window.DataContext>
-        <vm:PageGameVM />
+        <vm:MainWindowVM />
     </Window.DataContext>
 
     <Grid>
         <DockPanel Background="Black">
-            <ContentControl>
+            <ContentControl Content="{Binding Page}" />
         </DockPanel>
     </Grid>
 </Window>
