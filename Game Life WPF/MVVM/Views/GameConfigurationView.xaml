@@ -6,10 +6,10 @@
     xmlns:local="clr-namespace:Game_Life_WPF.MVVM.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:Game_Life_WPF.MVVM.ViewModels"
-    Width="800"
-    Height="450"
     d:DataContext="{d:DesignInstance vm:PageСonfigurationVM,
                                      IsDesignTimeCreatable=False}"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
     mc:Ignorable="d">
     <Grid>
         <GroupBox Background="DarkKhaki">
@@ -17,11 +17,116 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 Orientation="Vertical">
-                <StackPanel Orientation="Horizontal">
-                    <Label></Label>
-                        <TextBlock FontSize="30" Text="Map size width:"/>
-                    <TextBox Text="{Binding SizeWidth}" />
+                <StackPanel Margin="4" Orientation="Horizontal">
+                    <TextBlock
+                        FontFamily="{StaticResource Minecraft77}"
+                        FontSize="30"
+                        FontStyle="Normal"
+                        FontWeight="Regular"
+                        Text="Map size width:" />
+                    <TextBox
+                        MinWidth="100"
+                        Background="Khaki"
+                        BorderThickness="2"
+                        FontSize="24"
+                        Text="{Binding Page.SizeWidth}" />
                 </StackPanel>
+                <StackPanel Margin="4" Orientation="Horizontal">
+                    <TextBlock
+                        FontFamily="{StaticResource Minecraft77}"
+                        FontSize="30"
+                        FontStyle="Normal"
+                        FontWeight="Regular"
+                        Text="Map size height:" />
+                    <TextBox
+                        MinWidth="100"
+                        Background="Khaki"
+                        BorderThickness="2"
+                        FontSize="24"
+                        Text="{Binding Page.SizeHeight}" />
+                </StackPanel>
+                <StackPanel Margin="4" Orientation="Horizontal">
+                    <TextBlock
+                        FontFamily="{StaticResource Minecraft77}"
+                        FontSize="30"
+                        FontStyle="Normal"
+                        FontWeight="Regular"
+                        Text="Percentage of аlive cells:" />
+                    <Slider
+                        Width="200"
+                        MinWidth="200"
+                        MaxWidth="200"
+                        Margin="10"
+                        IsSnapToTickEnabled="True"
+                        Maximum="100"
+                        TickFrequency="0.5"
+                        Value="{Binding Page.CellDensity}" />
+                    <TextBlock
+                        MinWidth="100"
+                        MaxWidth="100"
+                        FontSize="24">
+                        <Run Text="{Binding Page.CellDensity}" />
+                        <Run Text="%" />
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel Margin="4" Orientation="Horizontal">
+                    <TextBlock
+                        FontFamily="{StaticResource Minecraft77}"
+                        FontSize="30"
+                        FontStyle="Normal"
+                        FontWeight="Regular"
+                        Text="Generation interval" />
+                    <TextBox
+                        MinWidth="100"
+                        Background="Khaki"
+                        BorderThickness="2"
+                        FontSize="24"
+                        Text="{Binding Page.Interval}" />
+                </StackPanel>
+                <StackPanel Margin="4" Orientation="Horizontal">
+                    <TextBlock
+                        FontFamily="{StaticResource Minecraft77}"
+                        FontSize="30"
+                        FontStyle="Normal"
+                        FontWeight="Regular"
+                        Text="Select cell color: " />
+
+                    <ComboBox
+                        Width="auto"
+                        MinWidth="60"
+                        FontSize="18"
+                        ItemsSource="{Binding Page.ColorList}"
+                        SelectedItem="{Binding Page.SelectedColor}"
+                        SelectedValue="{Binding Page.SelectedColor.Color, Converter={StaticResource DrawingColorToMediaColorConverter}}"
+                        SelectedValuePath="Color">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <!--  Квадратик з кольором  -->
+                                    <Border
+                                        Width="20"
+                                        Height="20"
+                                        Margin="0,4"
+                                        Background="{Binding Color, Converter={StaticResource DrawingColorToMediaColorConverter}}"
+                                        BorderThickness="0" />
+                                    <!--  Назва кольору  -->
+                                    <TextBlock FontSize="18" Text="{Binding Name}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+
+                </StackPanel>
+                <Button
+                    Width="200"
+                    Height="50"
+                    Margin="10"
+                    Background="DarkOliveGreen"
+                    Click="Button_Click"
+                    Content="START"
+                    FontSize="30"
+                    FontWeight="Bold" />
+
             </StackPanel>
         </GroupBox>
     </Grid>

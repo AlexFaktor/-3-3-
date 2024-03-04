@@ -4,7 +4,7 @@ namespace Game_Life_WPF.MVVM.ViewModels
 {
     public class MainWindowVM : ViewModel
     {
-        private PageVM? _Page;
+        private PageVM? _Page = new PageСonfigurationVM();
 
         public PageVM? Page
         {

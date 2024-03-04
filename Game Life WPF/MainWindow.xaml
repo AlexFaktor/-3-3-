@@ -5,10 +5,11 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Game_Life_WPF"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:views="clr-namespace:Game_Life_WPF.MVVM.Views"
     xmlns:vm="clr-namespace:Game_Life_WPF.MVVM.ViewModels"
     Title="{Binding Page.Title}"
-    Width="1000"
-    Height="1000"
+    Width="700"
+    Height="700"
     MinWidth="250"
     MinHeight="300"
     mc:Ignorable="d">
@@ -19,7 +20,20 @@
 
     <Grid>
         <DockPanel Background="Black">
-            <ContentControl Content="{Binding Page}" />
+            <ContentControl x:Name="MainContentControl" Content="{Binding Page}">
+                <ContentControl.Resources>
+
+                    <DataTemplate DataType="{x:Type vm:PageСonfigurationVM}">
+                        <views:GameConfigurationView />
+                    </DataTemplate>
+
+                    <DataTemplate DataType="{x:Type vm:PageGameVM}">
+                        <views:GameFieldView />
+                    </DataTemplate>
+
+
+                </ContentControl.Resources>
+            </ContentControl>
         </DockPanel>
     </Grid>
 </Window>

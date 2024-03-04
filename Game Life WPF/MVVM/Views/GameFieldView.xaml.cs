@@ -15,9 +15,7 @@ namespace Game_Life_WPF.MVVM.Views
     {
         public GameFieldView()
         {
-            InitializeComponent();
-
-            
+            InitializeComponent();      
         }
     }
 }

@@ -6,10 +6,10 @@
     xmlns:local="clr-namespace:Game_Life_WPF.MVVM.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:Game_Life_WPF.MVVM.ViewModels"
-    Width="800"
-    Height="450"
     d:DataContext="{d:DesignInstance vm:PageGameVM,
                                      IsDesignTimeCreatable=False}"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
     mc:Ignorable="d">
     <Grid>
         <Image
@@ -19,7 +19,7 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             RenderOptions.BitmapScalingMode="NearestNeighbor"
-            Source="{Binding}"
+            Source="{Binding GameScreen}"
             Stretch="Fill" />
     </Grid>
 </UserControl>
