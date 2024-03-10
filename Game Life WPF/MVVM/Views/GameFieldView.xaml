@@ -14,11 +14,10 @@
     <Grid>
         <Image
             x:Name="GameField"
-            Width="auto"
-            Height="auto"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             RenderOptions.BitmapScalingMode="NearestNeighbor"
+            SizeChanged="GameField_SizeChanged"
             Source="{Binding GameScreen}"
             Stretch="Fill" />
     </Grid>

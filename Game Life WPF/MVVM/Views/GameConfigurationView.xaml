@@ -12,42 +12,53 @@
     d:DesignWidth="800"
     mc:Ignorable="d">
     <Grid>
-        <GroupBox Background="DarkKhaki">
+        <GroupBox>
+            <GroupBox.Resources>
+                <Style TargetType="TextBox">
+                    <Setter Property="Foreground" Value="Black" />
+                    <Setter Property="Background" Value="{StaticResource BlackTransparency}" />
+                </Style>
+                <Style TargetType="TextBlock">
+                    <Setter Property="Foreground" Value="LightBlue" />
+                    <Setter Property="Background" Value="{StaticResource BlackTransparency}" />
+                </Style>
+                <Style TargetType="StackPanel">
+                    <Setter Property="Background" Value="{StaticResource BlackTransparency}" />
+                </Style>
+            </GroupBox.Resources>
+            <GroupBox.Background>
+                <ImageBrush ImageSource="/MVVM/Views/PixelArSpacetAnnaVersens.jpg" />
+            </GroupBox.Background>
             <StackPanel
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 Orientation="Vertical">
                 <StackPanel Margin="4" Orientation="Horizontal">
                     <TextBlock
-                        FontFamily="{StaticResource Minecraft77}"
                         FontSize="30"
                         FontStyle="Normal"
                         FontWeight="Regular"
                         Text="Map size width:" />
                     <TextBox
                         MinWidth="100"
-                        Background="Khaki"
                         BorderThickness="2"
                         FontSize="24"
                         Text="{Binding Page.SizeWidth}" />
                 </StackPanel>
                 <StackPanel Margin="4" Orientation="Horizontal">
                     <TextBlock
-                        FontFamily="{StaticResource Minecraft77}"
                         FontSize="30"
                         FontStyle="Normal"
                         FontWeight="Regular"
                         Text="Map size height:" />
                     <TextBox
                         MinWidth="100"
-                        Background="Khaki"
                         BorderThickness="2"
                         FontSize="24"
                         Text="{Binding Page.SizeHeight}" />
                 </StackPanel>
                 <StackPanel Margin="4" Orientation="Horizontal">
                     <TextBlock
-                        FontFamily="{StaticResource Minecraft77}"
                         FontSize="30"
                         FontStyle="Normal"
                         FontWeight="Regular"
@@ -71,21 +82,18 @@
                 </StackPanel>
                 <StackPanel Margin="4" Orientation="Horizontal">
                     <TextBlock
-                        FontFamily="{StaticResource Minecraft77}"
                         FontSize="30"
                         FontStyle="Normal"
                         FontWeight="Regular"
-                        Text="Generation interval" />
+                        Text="Generation interval:" />
                     <TextBox
                         MinWidth="100"
-                        Background="Khaki"
                         BorderThickness="2"
                         FontSize="24"
                         Text="{Binding Page.Interval}" />
                 </StackPanel>
                 <StackPanel Margin="4" Orientation="Horizontal">
                     <TextBlock
-                        FontFamily="{StaticResource Minecraft77}"
                         FontSize="30"
                         FontStyle="Normal"
                         FontWeight="Regular"
@@ -97,18 +105,17 @@
                         FontSize="18"
                         ItemsSource="{Binding Page.ColorList}"
                         SelectedItem="{Binding Page.SelectedColor}"
-                        SelectedValue="{Binding Page.SelectedColor.Color, Converter={StaticResource DrawingColorToMediaColorConverter}}"
+                        SelectedValue="{Binding Page.SelectedColor.Color}"
                         SelectedValuePath="Color">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
                                     <!--  Квадратик з кольором  -->
-                                    <Border
+                                    <Rectangle
                                         Width="20"
                                         Height="20"
                                         Margin="0,4"
-                                        Background="{Binding Color, Converter={StaticResource DrawingColorToMediaColorConverter}}"
-                                        BorderThickness="0" />
+                                        Fill="{Binding Color, Converter={StaticResource DraColToMedCol}}" />
                                     <!--  Назва кольору  -->
                                     <TextBlock FontSize="18" Text="{Binding Name}" />
                                 </StackPanel>

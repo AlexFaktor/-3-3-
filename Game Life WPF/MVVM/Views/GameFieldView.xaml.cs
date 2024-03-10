@@ -1,10 +1,5 @@
-﻿using Game_Life_WPF.Game;
-using Game_Life_WPF.MVVM.Models.GameObjects;
-using System.Drawing;
-using System.Drawing.Imaging;
-using System.IO;
+﻿using Game_Life_WPF.MVVM.ViewModels;
 using System.Windows.Controls;
-using System.Windows.Media.Imaging;
 
 namespace Game_Life_WPF.MVVM.Views
 {
@@ -15,7 +10,18 @@ namespace Game_Life_WPF.MVVM.Views
     {
         public GameFieldView()
         {
-            InitializeComponent();      
+            InitializeComponent();
+        }
+
+        private void GameField_SizeChanged(object sender, System.Windows.SizeChangedEventArgs e)
+        {
+            var img = sender as Image;
+
+            if (DataContext is PageGameVM vm)
+            {
+                vm.ImageHeight = img!.ActualHeight;
+                vm.ImageWidth = img!.ActualWidth;
+            }
         }
     }
 }

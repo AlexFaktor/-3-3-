@@ -10,8 +10,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="MVVM\Views\PixelArSpacetAnnaVersens.jpg" />
     <None Remove="Resources\Font\F77 Minecraft.ttf" />
     <None Remove="Resources\Font\PressStart2P-Regular.ttf" />
+    <None Remove="Resources\Image\PixelArSpacetAnnaVersens.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -19,10 +21,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="MVVM\Views\PixelArSpacetAnnaVersens.jpg" />
     <Resource Include="Resources\Font\F77 Minecraft.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Font\PressStart2P-Regular.ttf" />
+    <Resource Include="Resources\Image\PixelArSpacetAnnaVersens.jpg" />
   </ItemGroup>
 
   <ItemGroup>

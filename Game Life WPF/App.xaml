@@ -6,12 +6,14 @@
     xmlns:local="clr-namespace:Game_Life_WPF"
     StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <converter:ColorToBrushConverter x:Key="ColorToBrushConverter" />
-        <converter:DrawingColorToMediaColorConverter x:Key="DrawingColorToMediaColorConverter" />
+        <SolidColorBrush x:Key="BlackTransparency" Color="#66666650" />
+        <converter:DrawingColorToMediaColorConverter x:Key="DraColToMedCol" />
         <FontFamily x:Key="PressStart2P-Regular">
             /Resource/Font/PressStart2P-Regular.ttf #PressStart2PRegular
         </FontFamily>
+
         <FontFamily x:Key="Minecraft77">pack://application:,,,/Resource/Font/F77 Minecraft.ttf#Minecraft77</FontFamily>
 
+        <BitmapImage x:Key="PixelArtSpace" UriSource="/Resource/Image/PixelArSpacetAnnaVersens.jpg" />
     </Application.Resources>
 </Application>

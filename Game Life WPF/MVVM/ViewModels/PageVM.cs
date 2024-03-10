@@ -5,7 +5,6 @@ using System.Collections.ObjectModel;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
-using System.Windows.Documents;
 using System.Windows.Media.Imaging;
 
 namespace Game_Life_WPF.MVVM.ViewModels
@@ -107,7 +106,8 @@ namespace Game_Life_WPF.MVVM.ViewModels
         private Color _Color = Color.Green;
 
         private ObservableCollection<ColorItem>? _ColorList;
-        private ColorItem? _SelectedColor = new("Green", Color.Green) ;
+        private ColorItem? _SelectedColor = new("Green", Color.Green);
+
 
         public int SizeWidth
         {
