@@ -53,7 +53,7 @@ namespace Game_Life_WPF.MVVM.ViewModels
 
             while (true)
             {
-                Title = $"game life | generation - {game.CountGeneration} | alive - {game.Stats.CellAlive}/{game.Stats.CellCount} | field size - {game.Stats.FieldHeight}x{game.Stats.FieldWidth} | window size {ImageHeight}x{ImageWidth}";
+                Title = $"game life | generation - {game.Stats.CountGeneration} | alive - {game.Stats.CellAlive}/{game.Stats.CellCount} | field size - {game.Stats.FieldHeight}x{game.Stats.FieldWidth} | window size {ImageHeight}x{ImageWidth}";
                 GameScreen = ConvertCellsToBitmapImage(game.CellField.Field, cellColor); // cell color
                 game.NextGeneration();
 

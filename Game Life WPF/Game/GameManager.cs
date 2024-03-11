@@ -5,13 +5,11 @@ namespace Game_Life_WPF.Game
     class GameManager
     {
         public CellField CellField { get; set; }
-        public int CountGeneration { get; set; }
         public GameStats Stats { get; set; }
 
         public GameManager(int fieldWidth, int fieldHeight, double density)
         {
             CellField = new CellField(fieldWidth, fieldHeight, density);
-            CountGeneration = 0;
             Stats = new GameStats(CellField);
         }
 
@@ -37,16 +35,16 @@ namespace Game_Life_WPF.Game
                         newGenerationField[x, y] = CellField.Field[x, y];
                 }
             }
+            CellField.Field = newGenerationField;
 
             stats.CellAlive = CellField.CountCellAlive();
+            stats.CountGeneration++;
             Stats = stats;
-
-            CellField.Field = newGenerationField;
-            CountGeneration++;
         }
 
         public struct GameStats
         {
+            public int CountGeneration {  get; set; }
             public int CellAlive { get; set; }
             public readonly int CellCount { get; }
             public readonly int FieldWidth { get; }
@@ -57,6 +55,7 @@ namespace Game_Life_WPF.Game
                 FieldWidth = field.Field.GetLength(0);
                 FieldHeight = field.Field.GetLength(1);
                 CellCount = FieldWidth * FieldHeight;
+                CountGeneration = 0;
             }
         }
     }
