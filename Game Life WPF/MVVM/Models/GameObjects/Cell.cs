@@ -8,5 +8,10 @@
         {
             Alive = false;
         }
+
+        public Cell(bool alive)
+        {
+            Alive = alive;
+        }
     }
 }
